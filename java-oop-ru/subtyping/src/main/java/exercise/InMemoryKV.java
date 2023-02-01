@@ -22,11 +22,7 @@ public class InMemoryKV implements KeyValueStorage{
 
     @Override
     public String get(String key, String defaultValue) {
-        if (storage.get(key) == null) {
-            return defaultValue;
-        } else {
-            return storage.get(key);
-        }
+        return storage.getOrDefault(key, defaultValue);
     }
 
     @Override
