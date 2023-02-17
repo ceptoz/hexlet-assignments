@@ -20,21 +20,26 @@ public class CompaniesServlet extends HttpServlet {
 
         // BEGIN
         List<String> companies = getCompanies();
-        String qs = request.getQueryString();
         PrintWriter out = response.getWriter();
+        boolean companyIsPresent = false;
+        int counter = 1;
 
-        String searchResult = request.getParameter("searchResult");
+        String searchResult = request.getParameter("search");
+
         if (searchResult == null || searchResult.equals("")) {
             for (String company : companies) {
                 out.println(company);
+                counter++;
             }
-        } else if (!companies.contains(searchResult)) {
-            out.println("Companies not found.");
         } else {
             for (String company : companies) {
                 if (company.contains(searchResult)) {
                     out.println(company);
+                    companyIsPresent = true;
                 }
+            }
+            if (!companyIsPresent) {
+                out.println("Companies not found");
             }
         }
         // END
