@@ -17,7 +17,7 @@
             <table>
                 <tr>
                 <td>${user.get("id")}</td>
-                <td><a href='/users/show$id=${user.get("id")}'>${user.get("firstName")} ${user.get("lastName")}</a></td>
+                <td><a href='/users/show?id=${user.get("id")}'>${user.get("firstName")} ${user.get("lastName")}</a></td>
                 </tr>
             </table>
         </c:forEach>

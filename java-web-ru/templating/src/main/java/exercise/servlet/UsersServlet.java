@@ -134,8 +134,13 @@ public class UsersServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
+
         // BEGIN
-        
+        request.setAttribute("users", user);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/delete.jsp");
+        requestDispatcher.forward(request, response);
+
+        users.remove(user);
         // END
 
     }

@@ -14,13 +14,12 @@
     </head>
     <body>
         <c:set value='${user}' var='user'/>
-        <table>
-            <tr>
-                <td>${user.get("id")}</td>
-                <td>${user.get("email")}</td>
-           </tr>
-        <a href="/users">Все пользователи</a>
-        </table>
+        <p> ${user.get("id")}</p>
+        <p> ${user.get("firstName")} ${user.get("lastName")}</p>
+        <p> ${user.get("email")}</p>
+        <a href='/users/delete?id=${user.get("id")}'>Удалить пользователя</p>
+        <br>
+        <a href="/users">Вернуться ко всем пользователям</a>
     </body>
 </html>
 <!-- END -->

@@ -2,7 +2,6 @@
 <!-- BEGIN -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
 <html>
     <head>
         <title>Welcome</title>
@@ -13,6 +12,15 @@
             crossorigin="anonymous">
     </head>
     <body>
+        <c:set value='${user}' var='user'/>
+
+        <h1>Ты в самом деле хочеш удолить пользователя ${user.get("firstName")} ${user.get("lastName")}</h2>
+
+        <form action='/users/delete?id=${user.get("id")}' method='post'>
+            <button type='submit' class='btn btn-danger'>Удалить</button>
+        </form>
+
+        <br>
         <a href="/users">Все пользователи</a>
     </body>
 </html>
