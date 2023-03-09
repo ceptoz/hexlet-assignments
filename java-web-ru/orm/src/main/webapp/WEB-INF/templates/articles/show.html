@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layouts/application.html}">
+
+<head>
+  <title>Show article</title>
+</head>
+<section layout:fragment="content">
+  <h1>Данные статьи</h1>
+  <div class="card" th:object="${article}">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" th:text="*{getTitle()}"></li>
+      <li class="list-group-item" th:text="*{getBody()}"></li>
+      <li class="list-group-item" th:text="*{getCategory().getName()}"></li>
+
+      <!-- BEGIN -->
+      <div class="card-footer">
+        <a class="btn btn-primary" th:href="@{/articles/{id}/edit(id=*{getId()})}">Редактировать</a>
+        <a class="btn btn-primary" th:href="@{/articles/{id}/delete(id=*{getId()})}">Удалить</a>
+      </div>
+      <!-- END -->
+    </ul>
+  </div>
+</section>
